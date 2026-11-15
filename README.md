@@ -13,11 +13,4 @@ A real-time astronomy dashboard powered by NASA API.
 - NASA API
 - HTML/CSS
 
-## Setup
-1. Clone this repository
-2. Install dependencies: `pip install -r requirements.txt`
-3. Add your NASA API key in `.env` file
-4. Run: `python app.py`
 
-## Live Demo
-Coming soon...
