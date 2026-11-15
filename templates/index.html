@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar System Dashboard</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0a0a1a;
+            color: white;
+            font-family: 'Arial', sans-serif;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px;
+            background: linear-gradient(180deg, #1a1a3e 0%, #0a0a1a 100%);
+        }
+
+        header h1 {
+            font-size: 3em;
+            color: #f0c040;
+            text-shadow: 0 0 20px #f0c040;
+        }
+
+        header p {
+            color: #aaaacc;
+            margin-top: 10px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .section-title {
+            font-size: 1.5em;
+            color: #f0c040;
+            margin: 30px 0 15px 0;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+        }
+
+        .apod-card {
+            background: #1a1a2e;
+            border-radius: 15px;
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+
+        .apod-card img {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+        }
+
+        .apod-info {
+            padding: 20px;
+        }
+
+        .apod-info h2 {
+            color: #f0c040;
+            margin-bottom: 10px;
+        }
+
+        .apod-info p {
+            color: #aaaacc;
+            line-height: 1.6;
+        }
+
+        .planets-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .planet-card {
+            background: #1a1a2e;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #333;
+            transition: transform 0.3s;
+        }
+
+        .planet-card:hover {
+            transform: translateY(-5px);
+            border-color: #f0c040;
+        }
+
+        .planet-emoji {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        .planet-card h3 {
+            color: #f0c040;
+            margin-bottom: 8px;
+        }
+
+        .planet-card p {
+            color: #aaaacc;
+            font-size: 0.85em;
+            line-height: 1.5;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #555;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🌌 Solar System Dashboard</h1>
+        <p>Explore our universe — powered by NASA API</p>
+    </header>
+
+    <div class="container">
+
+        <h2 class="section-title">📸 Astronomy Picture of the Day</h2>
+        <div class="apod-card">
+            {% if apod %}
+                {% if apod.media_type == "image" %}
+                    <img src="{{ apod.url }}" alt="{{ apod.title }}">
+                {% endif %}
+                <div class="apod-info">
+                    <h2>{{ apod.title }}</h2>
+                    <p>{{ apod.explanation }}</p>
+                </div>
+                {% else %}
+                <div class="apod-info">
+                    <h2>Unable to load today's image</h2>
+                    <p>Please check your API key.</p>
+                </div>
+            {% endif %}
+        </div>
+
+        <h2 class="section-title">🪐 Planets in Our Solar System</h2>
+        <div class="planets-grid">
+            <div class="planet-card">
+                <div class="planet-emoji">🌑</div>
+                <h3>Mercury</h3>
+                <p>Closest planet to the Sun. No atmosphere, extreme temperatures.</p>
+            </div>
+            <div class="planet-card">
+                <div class="planet-emoji">🌕</div>
+                <h3>Venus</h3>
+                <p>Hottest planet. Thick toxic atmosphere of carbon dioxide.</p>
+            </div>
+            <div class="planet-card">
+                <div class="planet-emoji">🌍</div>
+                <h3>Earth</h3>
+                <p>Our home. Only known planet with life.</p>
+            </div>
+            <div class="planet-card">
+                <div class="planet-emoji">🔴</div>
+                <h3>Mars</h3>
+                <p>The Red Planet. Has the tallest volcano in the solar system.</p>
+            </div>
+            <div class="planet-card">
+                <div class="planet-emoji">🟠</div>
+                <h3>Jupiter</h3>
+                <p>Largest planet. Giant storm called the Great Red Spot.</p>
+            </div>
+            <div class="planet-card">
+                <div class="planet-emoji">🪐</div>
+                <h3>Saturn</h3>
+                <p>Famous for its beautiful rings made of ice and rock.</p>
+            </div>
+            <div class="planet-card">
+                <div class="planet-emoji">🔵</div>
+                <h3>Uranus</h3>
+                <p>Rotates on its side. Has faint rings and 27 moons.</p>
+            </div>
+            <div class="planet-card">
+                <div class="planet-emoji">💙</div>
+                <h3>Neptune</h3>
+                <p>Farthest planet. Has the strongest winds in the solar system.</p>
+            </div>
+    </div>
+
+
+ </div>
+
+ <footer>
+    <p>Builtt using NASA API | Solar System Dashboard</p>
+</footer>
+
+
+</body>
+
+
+
+
+</html>
